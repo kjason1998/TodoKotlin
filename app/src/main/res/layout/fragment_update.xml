@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="args"
+            type="com.example.android.todokotlin.fragments.update.UpdateFragmentArgs" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/updateFragmentBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        tools:context=".fragments.update.UpdateFragment">
+
+        <EditText
+            android:id="@+id/editTextUpdateTitle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:autofillHints="1"
+            android:background="@drawable/custom_input"
+            android:hint="@string/title"
+            android:text="@{args.itemToBeEdit.title}"
+            android:inputType="textShortMessage"
+            android:paddingHorizontal="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_Update_Priorities_Label"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_input"
+            android:entries="@array/labelsForTodos"
+            android:paddingHorizontal="18dp"
+            android:spinnerSelectPriorityToIntPosition="@{args.itemToBeEdit.priority}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextUpdateTitle" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLineUpdateDescription"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:autofillHints="1"
+            android:background="@drawable/custom_input"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/descriptions"
+            android:text="@{args.itemToBeEdit.description}"
+            android:inputType="textMultiLine"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_Update_Priorities_Label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
